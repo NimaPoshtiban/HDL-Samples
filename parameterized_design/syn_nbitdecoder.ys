@@ -1,0 +1,9 @@
+read_verilog -sv parameterized_nbit_decoder.sv
+
+hierarchy -check -top decoder 
+
+proc; opt; flatten; techmap; opt;
+
+abc -g NAND,XOR
+
+write_json parameterized_nbit_decoder.sv.json

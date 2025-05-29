@@ -1,0 +1,9 @@
+read_verilog -sv patternMoore.sv
+
+hierarchy -check -top patternMoore 
+
+proc; opt; flatten; techmap; opt
+
+abc -g AND,OR,XOR
+
+write_json patternMoore.json

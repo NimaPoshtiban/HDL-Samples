@@ -1,0 +1,10 @@
+read_verilog -sv parameterized_Nbit_Mux.sv
+
+hierarchy -check -top mux2
+
+proc; opt; flatten; techmap; opt
+
+abc -g AND,OR,XOR
+
+write_json parameterized_Nbit_Mux.json
+

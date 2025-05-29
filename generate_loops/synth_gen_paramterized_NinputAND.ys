@@ -1,0 +1,9 @@
+read_verilog -sv gen_parameterized_NinputAND.sv
+
+hierarchy -check -top GEN_AND 
+
+proc; opt; flatten; techmap; opt;
+
+abc -g AND
+
+write_json gen_parameterized_NinputAND.sv.json 
